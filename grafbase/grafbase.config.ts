@@ -1,5 +1,6 @@
 
 import { g, config, auth } from '@grafbase/sdk';
+import { SingleGraphConfigInput } from '@grafbase/sdk/dist/src/config';
 
 // @ts-ignore
 const User = g.model('User', {
@@ -39,4 +40,7 @@ export default config({
     providers: [jwt],
     rules: (rules) => rules.private()
   },
-})
+    graphql: {
+      endpoint: 'https://grafbasenext13-marcob1991.grafbase.app/graphql',
+    },
+} as SingleGraphConfigInput);
